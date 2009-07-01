@@ -119,7 +119,7 @@ class App_XMPP(object):
 			for off_roster in self.get_rosters().getItems():
 				if (off_roster not in self.roster) and (off_roster != self.jabber_id):
 					self.roster[off_roster]='offline'
-		return self.roster
+			return self.roster
 
 	def set_presence(self,priority=1,show='None',status='Connect'):
 		self.client.send(xmpp.protocol.Presence(priority=priority,show=show,status=status))

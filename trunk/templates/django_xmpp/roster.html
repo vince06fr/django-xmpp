@@ -1,10 +1,11 @@
 <html>
+	<link rel="stylesheet" type="text/css" href="../../media/css/roster.css"></style>
 <body>
 	<div id="rosters">
 		<h3> Amigos</h3>
 		<ul>
 			{% for key, status in roster.items %}
-			<li id="{{ status }}"> {{ key }} <img id="status" src="{{ status }}" /> </li>
+			<li id="{{ status }}"> {{ key }} <img id="status" src="../../media/status/{{ status }}.png" /> </li>
 			{% endfor %}
 		</ul>
     </div>

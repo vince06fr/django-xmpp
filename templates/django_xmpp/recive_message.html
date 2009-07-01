@@ -1,0 +1,17 @@
+<html>
+<body>
+	
+	{% for key, value in  status.items %}
+	<div id="conversetion">
+		<div id="{{ key }}">
+			{% for message in value %}
+				{% for from, msg in message.items %}
+					<span id="from"> {{ from }}: </span><span id="message">{{ msg }}</span><br />
+				{% endfor %}
+			{% endfor %}
+		</div>
+	</div><br />
+	{% endfor %}
+</body>
+</html>
+

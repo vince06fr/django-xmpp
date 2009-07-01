@@ -1,0 +1,16 @@
+{% extends 'django_xmpp/index.html' %}
+
+{% block window-chat %}
+<div class="window-chat">
+	<div id="message-user">
+		<span id="from">{{user}}:</span> {{ view_message }}
+	</div>
+	<div id="text-send">
+		<form method='post' action=".">
+			{{ form }}
+			<input type="submit" value="enviar" />
+		</form>
+	</div>
+	</div>
+</div>
+{% endblock %}

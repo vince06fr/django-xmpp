@@ -11,6 +11,7 @@
 
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
+from settings import DJANGO_MEDIA_URL
 from forms import *
 from xmpp_lib import *
 import sha
@@ -76,12 +77,13 @@ def recive_message(request,uuid):
 	return render_to_response('django_xmpp/recive_message.html',{'status': status }) # 'form': message['form']})
 
 def view_roster(request,uuid):
-	try:	
-		roster = JABBER_SESSION[uuid].all_roster()
-	except AttributeError:
-		return  HttpResponseRedirect('/xmpp/login/')
+	if request:
+		try:	
+			roster = JABBER_SESSION[uuid].all_roster()
+		except AttributeError:
+			return  HttpResponseRedirect('/xmpp/login/')
 
-	return render_to_response('django_xmpp/roster.html',{'roster': roster }) 
+		return render_to_response('django_xmpp/roster.html',{'roster': roster} )#,'DJANGO_MEDIA_URL': DJANGO_MEDIA_URL}) 
 
 def set_status(request,uuid):
 	status = {}

@@ -1,3 +1,14 @@
+# -*- coding: utf-8 -*-
+#
+#  Copyright (c) 2009 Marcello Bontempo Salgueiro and contributors
+#
+#  This file is part of Django XMPP.
+#
+#  Django XMPP is free software under terms of the GNU Lesser
+#  General Public License version 3 (LGPLv3) as published by the Free
+#  Software Foundation. See the file README for copying conditions.
+#
+
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 import os

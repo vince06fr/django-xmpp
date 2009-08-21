@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 import os
-WHERE = os.getcwd()
+WHERE = os.path.abspath(os.path.dirname(__file__))
 
-DJANGO_MEDIA_ROOT= getattr(settings,'DJANGO_MEDIA_ROOT', WHERE+'/django_xmpp/media/')
-DJANGO_MEDIA_URL= getattr(settings,'DJANGO_MEDIA_URL','media/')
+XMPP_MEDIA_ROOT= getattr(settings,'XMPP_MEDIA_ROOT', WHERE+'/media/')
+XMPP_MEDIA_URL= getattr(settings,'XMPP_MEDIA_URL','/media/')

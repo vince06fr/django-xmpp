@@ -8,10 +8,8 @@
 #  General Public License version 3 (LGPLv3) as published by the Free
 #  Software Foundation. See the file README for copying conditions.
 #
-
-
 from django.conf.urls.defaults import *
-from settings import DJANGO_MEDIA_ROOT, DJANGO_MEDIA_URL
+from settings import XMPP_MEDIA_ROOT
 urlpatterns = patterns('',
     (r'login/$', 'django_xmpp.views.login'),
 	(r'(?P<uuid>\w+)/logout/$','django_xmpp.views.logout'),
@@ -20,8 +18,10 @@ urlpatterns = patterns('',
 	(r'(?P<uuid>\w+)/roster/$','django_xmpp.views.view_roster'),
 	(r'(?P<uuid>\w+)/status/$','django_xmpp.views.set_status'),
 	(r'(?P<uuid>\w+)/auth/$','django_xmpp.views.authorize_view'),
-	(r'^%s(?P<path>.*)$' % DJANGO_MEDIA_URL, 'django.views.static.serve',
-		{'document_root': DJANGO_MEDIA_ROOT}),
-    )
-print DJANGO_MEDIA_ROOT
+)
+
+urlpatterns+=patterns('',
+	(r'media/(?P<path>.*)$', 'django.views.static.serve',
+							{'document_root': XMPP_MEDIA_ROOT}),
+)
 
